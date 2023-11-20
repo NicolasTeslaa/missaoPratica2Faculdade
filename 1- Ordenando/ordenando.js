@@ -29,7 +29,6 @@ function Ordenar() {
 }
 
 function bubbleSort() {
-    //concluido e funcionando, algoritmo por flutuação ou por bolha
     atualizarLista();
     var len = lista.length;
     var swapped;
@@ -57,14 +56,12 @@ function selectionSort() {
     atualizarLista();
     var len = lista.length;
     for (var i = 0; i < len - 1; i++) {
-        // Encontrar o índice do menor elemento restante
         var minIndex = i;
         for (var j = i + 1; j < len; j++) {
             if (arr[j] < arr[minIndex]) {
                 minIndex = j;
             }
         }
-        // Trocar o elemento atual com o menor encontrado
         var temp = arr[i];
         arr[i] = arr[minIndex];
         arr[minIndex] = temp;
@@ -87,25 +84,16 @@ function atualizarLista() {
 
 function quickSort() {
     atualizarLista();
-
-    
 }
 
 function Misturar() {
     shuffle(listaValores);
-    atualizarLista();
 }
 
 
 
 function shuffle(array) {
-    let currentIndex = array.length, randomIndex, tempValue;
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        tempValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = tempValue;
-    }
-    return array;
+    var arr = array.sort(() => Math.random() - 0.5);
+    lista.innerHTML = arr;
+    atualizarLista();
 }
